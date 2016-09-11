@@ -1,34 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {hashHistory, Link} from 'react-router';
-import Rebase from 're-base'
+// import Rebase from 're-base'
 import LoginContainer from '../Containers/LoginContainer'
 
-
-var base = {
+const Rebase = require('re-base');
+const base = Rebase.createClass({
   apiKey: "AIzaSyBO3yV6c6dwm6Zsrlxa9wW431Spe5P1Icg",
   authDomain: "etsy-demo-16f2c.firebaseapp.com",
   databaseURL: "https://etsy-demo-16f2c.firebaseio.com",
   storageBucket: "etsy-demo-16f2c.appspot.com",
-};
+});
 
-//
-//
-// class Login extends Component {
-//
-//   createUser(event) {
-//     event.preventDefault();
-//     let email = this.refs.email.value;
-//     let password = this.refs.password.value;
-//     base.createUser({
-//     email, password
-// }, this.handleCreatedUser);
-// }
-//
-// handleCreatedUser(error, authData) {
-//   console.log('auth data', authData);
-//   console.log('error', error);
-//
-// }
+
 
 class Login extends Component {
   constructor() {
@@ -82,5 +65,6 @@ class Login extends Component {
     );
   }
 }
+Login.contextTypes = {router: PropTypes.object.isRequired};
 
 export default Login;
