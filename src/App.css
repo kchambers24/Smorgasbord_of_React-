@@ -19,9 +19,14 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 .login-form {
   color: #777;
   border: 0px solid #afafaf;
@@ -33,7 +38,7 @@
   padding-top: 20px;
   border-radius: 3px;
   box-shadow: 0px 0px 8px #777;
-  background: rgba(255, 255, 255, 0.6);
+  background: #FAF0E6;
 }
 
 .loginInput {
@@ -48,13 +53,11 @@
   outline: none;
 }
 
-
 .login {
   background: #51AC74;
   font-size: 15px;
   border-radius: 5px;
   width: 80px;
-  margin-right: 20px;
 }
 
 .register {
@@ -62,4 +65,82 @@
   font-size: 15px;
   border-radius: 5px;
   width: 80px;
+}
+
+.lgInput {
+  color: #777;
+  font-weight: bold;
+  width: 70%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+.homeBtn {
+  font-size: 15px;
+  background-color: #03BCDF;
+  color: white;
+}
+
+.homeInput {
+  font-size: 15px;
+  height: 15px;
+}
+
+.homeHeader {
+  padding-bottom: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.itemBox {
+  width: 300px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.etsyBackground {
+  border-top: 1px solid lightgrey;
+  background-color: #FAF0E6;
+}
+
+.etsy {
+  font-size: 25px;
+  color: darkorange;
+}
+
+.infoBody {
+  border-top: 1px solid lightgrey;
+  background-color: #FAF0E6;
+}
+
+.productInfo {
+  font-size: 25px;
+  color: darkorange;
+}
+
+.shoppingBtn {
+  font-size: 15px;
+  background-color: #03BCDF;
+  color: white;
+  margin: 10px;
+}
+
+h3 {
+  color: darkorange;
+  font-size: 25px;
+}
+
+.wishList {
+  color: darkorange;
+  font-size: 25px;
 }

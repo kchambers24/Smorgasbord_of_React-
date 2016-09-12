@@ -1,22 +1,21 @@
 import React, {Component, PropTypes} from 'react';
 import {hashHistory, Link} from 'react-router';
-// import Rebase from 're-base'
-import LoginContainer from '../Containers/LoginContainer'
+import Rebase from 're-base'
+// import LoginContainer from '../Containers/LoginContainer'
+import Register from './Register'
 
-const Rebase = require('re-base');
-const base = Rebase.createClass({
-  apiKey: "AIzaSyBO3yV6c6dwm6Zsrlxa9wW431Spe5P1Icg",
+const base = Rebase.createClass({apiKey: "AIzaSyBO3yV6c6dwm6Zsrlxa9wW431Spe5P1Icg",
   authDomain: "etsy-demo-16f2c.firebaseapp.com",
   databaseURL: "https://etsy-demo-16f2c.firebaseio.com",
-  storageBucket: "etsy-demo-16f2c.appspot.com",
+  storageBucket: "etsy-demo-16f2c.appspot.com"
 });
-
-
 
 class Login extends Component {
   constructor() {
     super();
-    this.state = {login: true};
+    this.state = {
+      login: true
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.authHandler = this.authHandler.bind(this);
   }
@@ -26,45 +25,47 @@ class Login extends Component {
     let email = event.target.elements[0].value;
     let password = event.target.elements[1].value;
     if (this.state.login) {
-      base.authWithPassword({email, password}, this.authHandler);
+      base.authWithPassword({
+        email,
+        password
+      }, this.authHandler);
     } else {
       this.createUser(email, password);
     }
   }
 
   authHandler(error, authData) {
-    if(error){
+    if (error) {
       console.log(error);
     } else {
-      this.context.router.push('/home');
+      hashHistory.push('/home');
+      //hashHistory.push takes you to the next page
       console.log(authData);
     }
   }
 
-  toggleLogin() {
-    this.setState({login: !this.state.login});
-  }
-
-  createUser(email, password) {
-    base.createUser({email, password}, function(error, authData) {
-      console.log(authData);
-    });
-  }
-
-
-
   render() {
     return (
       <div>
-        <LoginContainer
-            handleSubmit={this.handleSubmit}
-            login={this.state.login}
-            toggleLogin={this.toggleLogin.bind(this)} />
-          {this.props.children}
+        <div className="login-form">
+          <h3>Login</h3>
+          <form onSubmit={this.props.handleSubmit}>
+            <input className="lgInput" type="text" name="username" placeholder="Username"/>
+            <br/>
+            <input className="lgInput" type="password" name="password" placeholder="Password"/>
+            <br/>
+            <br/>
+            <Link to="/home">
+              <button type="submit" className="login">Login</button>
+            </Link>
+            <br/>
+            <br/>
+            <Link to="/register" className="newBtn">New user, sign up now and be cool</Link>
+          </form>
+        </div>
       </div>
     );
   }
 }
-Login.contextTypes = {router: PropTypes.object.isRequired};
 
 export default Login;
