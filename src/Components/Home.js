@@ -6,8 +6,8 @@ import {hashHistory, Link} from 'react-router';
 import api_key from '../config/API_Key'
 
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       listings: []
     }

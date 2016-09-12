@@ -4,15 +4,16 @@ import Rebase from 're-base'
 // import LoginContainer from '../Containers/LoginContainer'
 import Register from './Register'
 
-const base = Rebase.createClass({apiKey: "AIzaSyBO3yV6c6dwm6Zsrlxa9wW431Spe5P1Icg",
+const base = Rebase.createClass({
+  apiKey: "AIzaSyBO3yV6c6dwm6Zsrlxa9wW431Spe5P1Icg",
   authDomain: "etsy-demo-16f2c.firebaseapp.com",
   databaseURL: "https://etsy-demo-16f2c.firebaseio.com",
   storageBucket: "etsy-demo-16f2c.appspot.com"
 });
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super([props]);
     this.state = {
       login: true
     };
